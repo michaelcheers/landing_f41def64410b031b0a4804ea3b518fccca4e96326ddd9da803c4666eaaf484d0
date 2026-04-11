@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="favicon.ico">
 <title>Flash Moving Canada</title>
 <script src="https://tracking-params.pages.dev/persist-url-params.min.js"></script>
-<!-- TODO: Customer tracking code snippet pending — add here when received -->
+<script type="text/javascript" src="//cdn.callrail.com/companies/613232277/9851361c657e7d505193/12/swap.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1609,6 +1609,8 @@ function submitToSmartMoving(data, formEl) {
   if (utmKeyword)  { body.UtmKeyword = utmKeyword; }
   if (utmMedium)   { body.UtmMedium = utmMedium; }
   if (utmSource)   { body.Source = utmSource; body.UtmSource = utmSource; }
+  var referralSource = params.get('referral_source') || document.referrer || '';
+  if (referralSource) { body.ReferralSource = referralSource; }
 
   fetch('https://api.smartmoving.com/api/leads/from-provider/v2?providerKey=317e2f95-3d23-48a5-9fea-b319010a8994', {
     method: 'POST',
